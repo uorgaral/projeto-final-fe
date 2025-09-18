@@ -1,0 +1,9 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* ocupa toda a tela */
+}
+
+.Content {
+  flex: 1; /* ocupa todo o espaço entre Header e Footer */
+}
