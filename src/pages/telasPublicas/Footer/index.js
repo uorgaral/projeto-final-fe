@@ -22,6 +22,7 @@ const Foot = styled.div`
     padding: 0 20px;
     box-sizing: border-box;
     box-shadow: 3px -3px 7px #3c3c3c45;
+    position: fixed
 
      @media (max-width: 768px){
         height: 160px;

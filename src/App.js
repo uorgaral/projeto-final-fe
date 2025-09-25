@@ -5,8 +5,9 @@ import PaginaInicial from './pages/telasPublicas/PaginaInicial'
 import './App.css'
 import "@fontsource-variable/playwrite-us-modern";
 import "@fontsource-variable/fredoka"; 
-import "@fontsource/lexend"
-import "@fontsource/style-script"
+import "@fontsource/lexend";
+import "@fontsource/style-script";
+import "@fontsource/lobster";
 
 
 function App() {
