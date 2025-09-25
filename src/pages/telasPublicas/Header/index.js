@@ -3,20 +3,8 @@ import styled from "styled-components";
 import Logo from "../../../img/Logo.png";
 import { BiCalendar, BiDonateHeart, BiSolidCamera, BiMessageRoundedDots, BiSolidUser, BiChevronDown, BiChevronUp } from "react-icons/bi";
 import Dropdown from 'react-bootstrap/Dropdown';
-import { useState } from 'react';
-
-
-const Body = styled.div`
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: start;
-    overflow: hidden;
-    box-sizing: border-box; 
-`;
 
 const Head = styled.div`
-    position: fixed;
     background-color: #E8DEEF;
     width: 100%;
     height: 80px;
@@ -62,67 +50,28 @@ const IconWrapper = styled.div`
 
 const StyledDropdown = styled(Dropdown)`
     display: none;
+
     @media (max-width: 768px){
         display: block;
-    }
+    };
 `;
 
-const StyledDropdownToggle = styled(Dropdown.Toggle)`
+const StyledDropdownToogle = styled(Dropdown.Toggle)`
     background-color: #3B83A6;
-    border-color: #3B83A6;
-    font-family: 'Fredoka Variable', sans-serif;
-    
-    &:hover, &:focus {
-        background-color: #0d3f58ff;
-        border-color: #0d3f58ff;
-    }
-
-    &.show, &:active {
-        background-color: #3B83A6 !important;
-        border-color: #3B83A6 !important;
-        box-shadow: none !important;
-    }
-
-    &::after {
-        display: none;
-    }
-`;
-
-const StyledDropdownMenu = styled(Dropdown.Menu)`
-    border: none;
-    margin-top: 10px; 
-    border-radius: 10px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-`;
-
-
-const StyledDropdownItem = styled(Dropdown.Item)`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: #000;
-    font-family: 'Fredoka Variable', sans-serif;
-    border: none;
-    outline: none;
+    font-family: 'fredoka variable';
 
     &:hover {
-        color: #fff;
-        background-color: #3B83A6;
+        background-color: #013e5cff;
     }
+`
 
-    &:active, &:focus {
-        background-color: #3B83A6 !important;
-        color: #000000ff !important;
-        border: none !important;
-        outline: none !important;
-    }
-`;
+
+
 
 export default function Header(){
-    const [open, setOpen] = useState(false);
 
     return(
-        <Body>
+        <>
             <Head>
                 <Img src={Logo}/>
 
@@ -136,19 +85,18 @@ export default function Header(){
                 </Icons>
 
                 {/* MOBILE */}
-                <StyledDropdown onToggle={(isOpen) => setOpen(isOpen)}>
-                    <StyledDropdownToggle id="dropdown-item-button">
-                        Menu {open ? <BiChevronUp /> : <BiChevronDown />}
-                    </StyledDropdownToggle>
-                    <StyledDropdownMenu>
-                        <StyledDropdownItem as="button"><BiCalendar size={24}/> Calendário</StyledDropdownItem>
-                        <StyledDropdownItem as="button"><BiDonateHeart size={24}/> Sobre</StyledDropdownItem>
-                        <StyledDropdownItem as="button"><BiSolidCamera size={24}/> Galeria</StyledDropdownItem>
-                        <StyledDropdownItem as="button"><BiMessageRoundedDots size={24}/> Blog</StyledDropdownItem>
-                        <StyledDropdownItem as="button"><BiSolidUser size={24}/> Login</StyledDropdownItem>
-                    </StyledDropdownMenu>
+                <StyledDropdown>
+                <StyledDropdownToogle id="dropdown-basic">
+                    Menu
+                </StyledDropdownToogle>
+
+                <Dropdown.Menu>
+                    <Dropdown.Item href="#/action-1" style={{fontFamily: 'fredoka variable'}}>Action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2" style={{fontFamily: 'fredoka variable'}}>Another action</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}>Something else</Dropdown.Item>
+                </Dropdown.Menu>
                 </StyledDropdown>
             </Head>
-        </Body>
+        </>
     );
 }
