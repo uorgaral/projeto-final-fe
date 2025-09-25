@@ -91,9 +91,12 @@ export default function Header(){
                 </StyledDropdownToogle>
 
                 <Dropdown.Menu>
-                    <Dropdown.Item href="#/action-1" style={{fontFamily: 'fredoka variable'}}>Action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-2" style={{fontFamily: 'fredoka variable'}}>Another action</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}>Something else</Dropdown.Item>
+                    
+                    <Dropdown.Item href="#/action-2" style={{fontFamily: 'fredoka variable'}}><BiDonateHeart size={20} /> Sobre</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1" style={{fontFamily: 'fredoka variable'}}><BiCalendar size={20}></BiCalendar> Eventos</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}><BiMessageRoundedDots size={20} /> Blog</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}><BiSolidCamera size={20} /> Galeria</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}><BiSolidUser size={20} /> Login</Dropdown.Item>
                 </Dropdown.Menu>
                 </StyledDropdown>
             </Head>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
+import { grid } from '@mui/system';
 //
 import LogoG1 from '../../../img/logoG1.png'
 import LogoComUFU from '../../../img/logoComUFU.png'
@@ -61,7 +62,7 @@ const ContCard = styled.div`
 
     @media (max-width: 768px){
         flex-direction: column;
-        gap: 15px; /* Adicionado espaço entre os cards */
+        gap: 15px;
     }
 `
 
@@ -111,10 +112,10 @@ export default function PaginaInicial(){
                 <ContTitulo>
                     <TituloPrincipal>Guardiãs das Águas</TituloPrincipal>
                 </ContTitulo>
-                
+
                 <ContCard>
                     {/* Card 1 */}
-                    <Card style={{ width: '18rem', height: '20rem', border: '3px solid #683f91ff', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}}>
+                    <Card style={{ width: '18rem', height: '20rem', border: '3px solid #683f91ff', boxShadow: '0 4px 8px 0 #4321667d'}}>
                         <StyledCardBody>
                             <img src={LogoG1} style={{width: 40, height: 40}}/>
                             <CardTexto>Mulheres na ciência: com orçamento de R$ 1 milhão, professora da UFU desenvolve projeto com alunas de escolas públicas de seis estados do Brasil</CardTexto>
@@ -122,7 +123,7 @@ export default function PaginaInicial(){
                         </StyledCardBody>
                     </Card>
                     {/* Card 2 */}
-                    <Card style={{ width: '18rem', height: '20rem', border: '3px solid #683f91ff', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2)'}}>
+                    <Card style={{ width: '18rem', height: '20rem', border: '3px solid #683f91ff', boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.4)'}}>
                         <StyledCardBody>
                             <img src={LogoComUFU} style={{width: 126, height: 20}}/>
                             <CardTexto>MULHERES NA CIÊNCIA

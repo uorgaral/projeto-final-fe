@@ -3,8 +3,9 @@ import BoasVindas from './pages/telasPublicas/Inicio'
 import Header from './pages/telasPublicas/Header';
 import Footer from './pages/telasPublicas/Footer';
 import PaginaInicial from './pages/telasPublicas/PaginaInicial'
+import Login from './pages/telasPublicas/Login'
 import './App.css'
-import "@fontsource-variable/fredoka"; // 
+import "@fontsource-variable/fredoka"; // textos menores
 import "@fontsource/style-script"; // título principal
 
 const MainContainer = styled.div`
@@ -12,6 +13,7 @@ const MainContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #fdf7f1ff;
 `;
 
 const ContentWrapper = styled.div`
@@ -24,7 +26,7 @@ function App() {
     <MainContainer>
       <Header />
       <ContentWrapper>
-        <PaginaInicial/>
+        <Login/>
       </ContentWrapper>
       <Footer />
     </MainContainer>
