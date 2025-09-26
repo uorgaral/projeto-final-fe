@@ -22,7 +22,7 @@ const Img = styled.img`
     height: 60px;
 `;
 
-const Icons = styled.div`
+const Botoes = styled.div`
     display: flex;
     gap: 15px;
     color: #3B83A6;
@@ -38,7 +38,7 @@ const Icons = styled.div`
     }
 `;
 
-const TextoWrapper = styled.div`
+const BotoesWrapper = styled.div`
     color: #3B83A6;
     transition: color 0.3s ease;
     cursor: pointer;
@@ -77,13 +77,13 @@ export default function Header(){
                 <Img src={Logo}/>
 
                 {/* DESKTOP */}
-                <Icons>
-                    <TextoWrapper>Sobre</TextoWrapper>
-                    <TextoWrapper>Blog</TextoWrapper>
-                    <TextoWrapper>Galeria</TextoWrapper>
-                    <TextoWrapper>Eventos</TextoWrapper>
-                    <TextoWrapper>Login</TextoWrapper>
-                </Icons>
+                <Botoes>
+                    <BotoesWrapper href="#/action-2" >Sobre</BotoesWrapper>
+                    <BotoesWrapper href="#/action-2" >Blog</BotoesWrapper>
+                    <BotoesWrapper href="#/action-2" >Galeria</BotoesWrapper>
+                    <BotoesWrapper href="#/action-2" >Eventos</BotoesWrapper>
+                    <BotoesWrapper href="#/action-2" >Login</BotoesWrapper>
+                </Botoes>
 
                 {/* MOBILE */}
                 <StyledDropdown>

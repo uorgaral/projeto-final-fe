@@ -158,17 +158,14 @@ const Body = styled.div`
         inset: 0;
         background-color: #a3f0ffa2; 
         z-index: 1;
-  }
+    }
 
-   @media (max-width: 768px){
-        background-image: url(${fundo});
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        width: 100vw;
-        height: 100vh;
+    @media (max-width: 768px){
+        background-image: none;
+        padding-bottom: 0;
     }
 `;
+
 
 const Container = styled.div`
     background-color: #fefefeff;
@@ -184,9 +181,13 @@ const Container = styled.div`
     padding: 20px;
 
     @media (max-width: 768px){
-        width: 300px;
-        min-height: 400px;
-   }
+        width: 100%; 
+        height: 100%;
+        margin-top: 0;
+        padding: 8px;
+        box-shadow: none;
+        border-radius: none;
+    }
 `;
 
 
@@ -199,8 +200,9 @@ const TituloPrincipal = styled.h1`
     margin-inline: 30px;
 
     @media (max-width: 768px){
-        font-size: 50px
-    };
+        font-size: 55px;
+        margin-inline: 10px;
+    }
 `;
 
 const Subtitulo = styled.p`
@@ -211,9 +213,6 @@ const Subtitulo = styled.p`
     margin-left: 20px;
     margin-bottom: 0;
 
-    @media (max-width: 768px){
-        font-size: 50px
-    };
 `;
 
 const Texto = styled.p`
@@ -221,10 +220,6 @@ const Texto = styled.p`
     color: #000000ff;
     font-size: 17px;
     margin-left: 20px;
-
-    @media (max-width: 768px){
-        font-size: 50px
-    };
 `;
 
 
@@ -236,7 +231,19 @@ const ContTitulo = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+
+    @media (max-width: 768px){
+        margin-top: 0;
+    }
 `;
+
+const ImagemTopo = styled.img`
+    display: block;
+
+    @media (max-width: 768px){
+        display: none;
+   }
+`
 
 const ContSubtitulo = styled.div`
     width: 100%;
@@ -262,12 +269,23 @@ const StyledCard = styled(Card)`
     flex-direction: row;
     box-shadow: 0 4px 8px 0 #4321667d;
     flex-shrink: 0;
+
+    @media (max-width: 768px){
+        width: 400px;
+        height: 450px;
+        display: flex;
+        align-items: center;
+    }
 `;
 
 const StyledCardImg = styled(Card.Img)`
     height: 300px;
     width: 200px;
     object-fit: cover;
+
+    @media (max-width: 768px){
+        border-radius: 100%;
+    }
 `;
 
 const StyledCardBody = styled(Card.Body)`
@@ -282,28 +300,49 @@ const TituloCard = styled(Card.Title)`
     font-family: "Fredoka Variable", sans-serif !important;
     color: #3B83A6;
     font-size: 17px;
-
-    @media (max-width: 768px){
-        font-size: 50px
-    };
 `;
 const SubtituloCard = styled(Card.Subtitle)`
     font-family: "Fredoka Variable", sans-serif !important;
     color: #3B83A6;
     font-size: 15px;
-
-    @media (max-width: 768px){
-        font-size: 50px
-    };
 `;
 const TextoCard = styled(Card.Text)`
     font-family: "Fredoka Variable", sans-serif !important;
     color: #000000ff;
     font-size: 14px;
+`;
+
+const ContTextoObjetivo = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30;
 
     @media (max-width: 768px){
-        font-size: 50px
+        display: flex;
+        flex-direction: column;
+    }
+`
+
+const DivTextoObj = styled.div`
+     margin-top: 24px;
+     margin-bottom: 50px;
+     width: 600px
+
+     @media (max-width: 768px){
+        width: 190px;
     };
+`;
+
+const ImagemLogo = styled.img`
+    width: 200px;
+    height: 200px; 
+    border-radius: 20px;
+
+    @media (max-width: 768px){
+        display: none;
+    }
 `;
 
 
@@ -313,9 +352,9 @@ export default function Sobre(){
             <Container>
 
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: "space-around", alignItems: 'center'}}>
-                    <div style={{marginTop: 35, width: 1000}}>
+                    <div style={{marginTop: 35, width: 1000, alignItems: 'center'}}>
                         <ContTitulo>
-                        <img src={Logo} style={{width: 50, height: 50}}/>
+                        <ImagemTopo src={Logo} style={{width: 70, height: 70}}/>
                         <TituloPrincipal>Projeto Guardiãs das Águas</TituloPrincipal>
                         </ContTitulo>
 
@@ -332,10 +371,10 @@ export default function Sobre(){
                 </div>
                 
 
-                <div style={{display: 'flex', flexDirection: 'row', justifyContent: "space-around", alignItems: 'center', marginTop: 30}}>
-                    <div style={{marginTop: 24, marginBottom: 50, width: 600}}>
+                <ContTextoObjetivo>
+                    <DivTextoObj>
                         <ContSubtitulo>
-                        <Subtitulo>Nosso objetvo</Subtitulo>
+                        <Subtitulo>Nosso objetivo</Subtitulo>
                         </ContSubtitulo>
 
                         <Texto>1. Estimular o interesse, o ingresso, a formação de grupos de Guardiãs das Águas 
@@ -348,12 +387,12 @@ export default function Sobre(){
                             e assim estimular a percepção ambiental da comunidade em relação a importância do saneamento ambiental, 
                             sobretudo em relação à conservação dos recursos hídricos, ao tratamento de água e esgoto, a redução e destinação 
                             correta dos resíduos sólidos, e compreensão das fontes de poluição e métodos de controle.</Texto>
-                    </div>
+                    </DivTextoObj>
 
                             <div>
-                                <img src={logoComFundo} style={{width: 200, height: 200, borderRadius: 20}}/>
+                                <ImagemLogo src={logoComFundo}/>
                             </div>
-                </div>
+                </ContTextoObjetivo>
 
 
 
@@ -395,8 +434,7 @@ export default function Sobre(){
                         </StyledCard>
                     ))}
                 </ContImg>
-                </div>                
-                
+                </div>         
             </Container>
         </Body>
     );
