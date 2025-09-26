@@ -4,13 +4,6 @@ import { AiOutlineWhatsApp } from "react-icons/ai";
 import Logo from '../../../img/Logo.png'
 import Table from 'react-bootstrap/Table';
 
-const Body = styled.div`
-    display: flex;
-    justify-content: end;
-    flex-direction: column;
-    position: relative;
-`
-
 const Foot = styled.div`
     background-color: #E8DEEF;
     width: 100%;
@@ -24,10 +17,9 @@ const Foot = styled.div`
     box-shadow: 3px -3px 7px #3c3c3c45;
 
      @media (max-width: 768px){
-        height: 160px;
+        height: 150px;
     }
 `
-
 
 const Img = styled.img`
     width: 80px;
@@ -75,7 +67,7 @@ const StyledTable = styled(Table)`
         cursor: pointer; 
     };
     @media (max-width: 768px){
-        font-size: 13px;
+        font-size: 17px;
         width: 30px;
         padding: 12px 8px;
     }
@@ -99,7 +91,6 @@ const Icons = styled.div`
 
 export default function Footer(){
     return(
-        <Body>
             <Foot>
                 <ContDoodles>
                     <Img src={Logo}/>
@@ -125,8 +116,6 @@ export default function Footer(){
                             </tr>
                         </tbody>
                     </StyledTable>
-
             </Foot>
-        </Body>
     )
 }
