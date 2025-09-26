@@ -1,7 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from "styled-components";
 import Logo from "../../../img/Logo.png";
-import { BiCalendar, BiDonateHeart, BiSolidCamera, BiMessageRoundedDots, BiSolidUser, BiChevronDown, BiChevronUp } from "react-icons/bi";
 import Dropdown from 'react-bootstrap/Dropdown';
 
 const Head = styled.div`
@@ -39,10 +38,12 @@ const Icons = styled.div`
     }
 `;
 
-const IconWrapper = styled.div`
+const TextoWrapper = styled.div`
     color: #3B83A6;
     transition: color 0.3s ease;
     cursor: pointer;
+    font-family: 'fredoka variable';
+    font-size: 20px;
     &:hover {
         color: #0d3f58ff;
     }
@@ -77,11 +78,11 @@ export default function Header(){
 
                 {/* DESKTOP */}
                 <Icons>
-                    <IconWrapper><BiCalendar size={40}/></IconWrapper>
-                    <IconWrapper><BiDonateHeart size={40} /></IconWrapper>
-                    <IconWrapper><BiSolidCamera size={40} /></IconWrapper>
-                    <IconWrapper><BiMessageRoundedDots size={40} /></IconWrapper>
-                    <IconWrapper><BiSolidUser size={40} /></IconWrapper>
+                    <TextoWrapper>Sobre</TextoWrapper>
+                    <TextoWrapper>Blog</TextoWrapper>
+                    <TextoWrapper>Galeria</TextoWrapper>
+                    <TextoWrapper>Eventos</TextoWrapper>
+                    <TextoWrapper>Login</TextoWrapper>
                 </Icons>
 
                 {/* MOBILE */}
@@ -92,11 +93,11 @@ export default function Header(){
 
                 <Dropdown.Menu>
                     
-                    <Dropdown.Item href="#/action-2" style={{fontFamily: 'fredoka variable'}}><BiDonateHeart size={20} /> Sobre</Dropdown.Item>
-                    <Dropdown.Item href="#/action-1" style={{fontFamily: 'fredoka variable'}}><BiCalendar size={20}></BiCalendar> Eventos</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}><BiMessageRoundedDots size={20} /> Blog</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}><BiSolidCamera size={20} /> Galeria</Dropdown.Item>
-                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}><BiSolidUser size={20} /> Login</Dropdown.Item>
+                    <Dropdown.Item href="#/action-2" style={{fontFamily: 'fredoka variable'}}>Sobre</Dropdown.Item>
+                    <Dropdown.Item href="#/action-1" style={{fontFamily: 'fredoka variable'}}>Blog</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}>Galeria</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}>Eventos</Dropdown.Item>
+                    <Dropdown.Item href="#/action-3" style={{fontFamily: 'fredoka variable'}}>Login</Dropdown.Item>
                 </Dropdown.Menu>
                 </StyledDropdown>
             </Head>

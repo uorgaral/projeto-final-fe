@@ -1,12 +1,19 @@
 import styled from 'styled-components';
+
+
 import BoasVindas from './pages/telasPublicas/Inicio'
 import Header from './pages/telasPublicas/Header';
 import Footer from './pages/telasPublicas/Footer';
 import PaginaInicial from './pages/telasPublicas/PaginaInicial'
 import Login from './pages/telasPublicas/Login'
+import Sobre from './pages/telasPublicas/Sobre'
 import './App.css'
+
 import "@fontsource-variable/fredoka"; // textos menores
 import "@fontsource/style-script"; // título principal
+import "@fontsource/updock"; // título principal
+import "@fontsource/comic-relief"; // título secundário
+
 
 const MainContainer = styled.div`
   display: flex;
@@ -23,13 +30,14 @@ const ContentWrapper = styled.div`
 
 function App() {
   return (
-    <MainContainer>
+      <MainContainer>
       <Header />
       <ContentWrapper>
-        <Login/>
+        <Sobre/>
       </ContentWrapper>
       <Footer />
     </MainContainer>
+    
   )
 }
 

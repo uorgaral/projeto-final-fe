@@ -37,7 +37,7 @@ const Body = styled.div`
 
 const Container = styled.div`
   background-color: #fefefeff;
-  box-shadow: 0 4px 8px 0 #4321667d;
+  box-shadow: 0 4px 8px 0 #56268594;
   width: 500px;
   height: 400px;
   border-radius: 10px;
@@ -78,15 +78,16 @@ const InputForm = styled(Form.Control)`
 `;
 
 const TituloPrincipal = styled.h1`
-    font-family: 'Style Script', sans-serif !important;
+    font-family: 'Comic Relief', sans-serif !important;
     color: #683f91ff;
-    font-size: 60px;
+    font-size: 40px;
     text-shadow: 2px 1px 2px #58268b65;
 
     @media (max-width: 768px){
         font-size: 50px
     };
 `
+
 const StyledButton = styled(Button)`
     font-family: 'Fredoka Variable', sans-serif;
     font-size: 20px;

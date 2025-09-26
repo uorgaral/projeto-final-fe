@@ -2,7 +2,6 @@ import styled from "styled-components";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
 import Card from 'react-bootstrap/Card';
-import { grid } from '@mui/system';
 //
 import LogoG1 from '../../../img/logoG1.png'
 import LogoComUFU from '../../../img/logoComUFU.png'
@@ -43,7 +42,7 @@ const ContTitulo = styled.div`
 `
 
 const TituloPrincipal = styled.h1`
-    font-family: 'Style Script', sans-serif !important;
+    font-family: "Updock", cursive !important;;
     color: #683f91ff;
     font-size: 80px;
     text-shadow: 2px 2px 4px #48207075;
