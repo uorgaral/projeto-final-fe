@@ -156,7 +156,7 @@ const Body = styled.div`
         content: "";
         position: absolute;
         inset: 0;
-        background-color: #a3f0ffa2; 
+        background-color: #a3f0ff7c; 
         z-index: 1;
     }
 
