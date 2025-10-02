@@ -218,7 +218,7 @@ const Subtitulo = styled.p`
 const Texto = styled.p`
     font-family: "Fredoka Variable", sans-serif !important;
     color: #000000ff;
-    font-size: 17px;
+    font-size: 22px;
     margin-left: 20px;
 `;
 
@@ -228,6 +228,7 @@ const ContTitulo = styled.div`
     width: 100%;
     text-align: center;
     margin-top: 35px;
+    margin-bottom: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -315,9 +316,11 @@ const TextoCard = styled(Card.Text)`
 const ContTextoObjetivo = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    margin-top: 30;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 1200px;
 
     @media (max-width: 768px){
         display: flex;
@@ -326,9 +329,7 @@ const ContTextoObjetivo = styled.div`
 `
 
 const DivTextoObj = styled.div`
-     margin-top: 24px;
-     margin-bottom: 50px;
-     width: 600px
+     width: 600px;
 
      @media (max-width: 768px){
         width: 190px;
@@ -338,7 +339,8 @@ const DivTextoObj = styled.div`
 const ImagemLogo = styled.img`
     width: 200px;
     height: 200px; 
-    border-radius: 20px;
+    border-radius: 100%;
+    box-shadow: 0 4px 8px 0 #4321667d;
 
     @media (max-width: 768px){
         display: none;
@@ -352,7 +354,7 @@ export default function Sobre(){
             <Container>
 
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: "space-around", alignItems: 'center'}}>
-                    <div style={{marginTop: 35, width: 1000, alignItems: 'center'}}>
+                    <div style={{marginTop: 35, width: 900, alignItems: 'center'}}>
                         <ContTitulo>
                         <ImagemTopo src={Logo} style={{width: 70, height: 70}}/>
                         <TituloPrincipal>Projeto Guardiãs das Águas</TituloPrincipal>
