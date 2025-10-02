@@ -55,7 +55,7 @@ const Container = styled.div`
 `;
 
 const TextoForm = styled(Form.Label)`
-    font-family: 'Fredoka Variable', sans-serif;
+    font-family: "Be Vietnam Pro", sans-serif !important;
     color: #164a65ff;
     font-size: 20px;
 
@@ -78,7 +78,7 @@ const InputForm = styled(Form.Control)`
 `;
 
 const TituloPrincipal = styled.h1`
-    font-family: 'Comic Relief', sans-serif !important;
+    font-family: "Style Script", cursive !important;
     color: #683f91ff;
     font-size: 40px;
     text-shadow: 2px 1px 2px #58268b65;
@@ -98,7 +98,7 @@ const StyledButton = styled(Button)`
     border-radius: 7px;
 
     &:hover{
-        background-color: #361953ff;
+        background-color: #195674;
     };
 `
 

@@ -42,7 +42,7 @@ const ContTitulo = styled.div`
 `
 
 const TituloPrincipal = styled.h1`
-    font-family: "Updock", cursive !important;;
+    font-family: "Style Script", cursive !important;
     color: #683f91ff;
     font-size: 80px;
     text-shadow: 2px 2px 4px #48207075;
@@ -76,7 +76,7 @@ const CardLink = styled(Card.Link)`
     transition: color 0.3s ease;
 
     &:hover{
-        color: #0f4058ff;
+        color: #195674;
     };
 `
 const StyledCardBody = styled(Card.Body)`

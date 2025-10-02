@@ -33,7 +33,7 @@ const Botoes = styled.div`
         transition: color 0.3s ease;
         cursor: pointer;
         &:hover {
-            color: #0d3f58ff;
+            color: #195674;
         }
     }
 `;
@@ -45,7 +45,7 @@ const BotoesWrapper = styled.div`
     font-family: 'fredoka variable';
     font-size: 20px;
     &:hover {
-        color: #0d3f58ff;
+        color: #195674;
     }
 `;
 
@@ -62,7 +62,7 @@ const StyledDropdownToogle = styled(Dropdown.Toggle)`
     font-family: 'fredoka variable';
 
     &:hover {
-        background-color: #013e5cff;
+        background-color: #195674;
     }
 `
 

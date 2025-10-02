@@ -7,12 +7,15 @@ import Footer from './pages/telasPublicas/Footer';
 import PaginaInicial from './pages/telasPublicas/PaginaInicial'
 import Login from './pages/telasPublicas/Login'
 import Sobre from './pages/telasPublicas/Sobre'
+import Blog from './pages/telasPublicas/Blog'
+// import AddBlog from './pages/telasPublicas/AddBlog'
+// import AddEvento from './pages/telasPublicas/AddEvento'
 import './App.css'
 
-import "@fontsource-variable/fredoka"; // textos menores
-import "@fontsource/style-script"; // título principal
-import "@fontsource/updock"; // título principal
-import "@fontsource/comic-relief"; // título secundário
+import "@fontsource/style-script"; // título Nome
+import "@fontsource/chicle"; // título Páginas
+import "@fontsource-variable/fredoka"; // subtitulo
+import "@fontsource/be-vietnam-pro"; // textos menores
 
 
 const MainContainer = styled.div`
@@ -33,7 +36,7 @@ function App() {
       <MainContainer>
       <Header />
       <ContentWrapper>
-        <Sobre/>
+        <Blog/>
       </ContentWrapper>
       <Footer />
     </MainContainer>

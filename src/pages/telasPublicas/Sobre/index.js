@@ -193,7 +193,7 @@ const Container = styled.div`
 
 //TITULOS
 const TituloPrincipal = styled.h1`
-    font-family: "Updock", cursive !important;
+    font-family: "Style Script", cursive !important;
     color: #5C1D9C;
     font-size: 80px;
     text-shadow: 1px 0.5px 1px #58268b65;
@@ -212,11 +212,10 @@ const Subtitulo = styled.p`
     text-shadow: 1px 0.5px 1px #58268b65;
     margin-left: 20px;
     margin-bottom: 0;
-
 `;
 
 const Texto = styled.p`
-    font-family: "Fredoka Variable", sans-serif !important;
+    font-family: "Be Vietnam Pro", sans-serif !important;
     color: #000000ff;
     font-size: 22px;
     margin-left: 20px;
@@ -308,7 +307,7 @@ const SubtituloCard = styled(Card.Subtitle)`
     font-size: 15px;
 `;
 const TextoCard = styled(Card.Text)`
-    font-family: "Fredoka Variable", sans-serif !important;
+    font-family: "Be Vietnam Pro", sans-serif !important;
     color: #000000ff;
     font-size: 14px;
 `;

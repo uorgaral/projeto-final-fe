@@ -47,22 +47,21 @@ const ContDoodles = styled.div`
 
 const StyledTable = styled(Table)`
     font-family: 'Fredoka Variable', sans-serif;
-    color: #3B83A6;
     font-size: 17px;
     background-color: transparent !important;
     border: none !important;  
     border-collapse: collapse;
-    width: 400px;
+    max-width: 400px;
 
     td, th {
         padding: 3px 0px;
         text-align: center;
         border: none !important; 
         background-color: transparent !important; 
-        color: #3B83A6;
+        color: #3B83A6 !important;
     };
     td:hover {
-        color: #0d3f58ff; 
+        color: #195674 !important; 
         transition: all 0.3s ease;
         cursor: pointer; 
     };
@@ -81,7 +80,7 @@ const Icons = styled.div`
 
     svg {
         &:hover {
-        color: #0d3f58ff; 
+        color: #195674; 
         transition: all 0.3s ease;
         cursor: pointer; 
         }

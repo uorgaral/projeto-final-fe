@@ -63,7 +63,7 @@ const ContTitulo = styled.div`
 `
 
 const Titulo = styled.h1`
-    font-family: 'Playwrite US Modern Variable', sans-serif !important;
+    font-family: "Style Script", cursive !important;
     font-size: 50px;
     color: #9B6BCB;
     text-shadow: 3px 3px 5px #9B6BCB7d;
