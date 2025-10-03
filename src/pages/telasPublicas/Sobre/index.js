@@ -219,6 +219,11 @@ const Texto = styled.p`
     color: #000000ff;
     font-size: 22px;
     margin-left: 20px;
+
+    @media(max-width: 768px){
+        font-size: 20px;
+        margin-left: 0;
+    }
 `;
 
 
@@ -321,18 +326,15 @@ const ContTextoObjetivo = styled.div`
     margin-bottom: 50px;
     width: 1200px;
 
-    @media (max-width: 768px){
-        display: flex;
-        flex-direction: column;
+    @media(max-width: 768px){
+    display: flex;
+    flex-direction: row;
+    width: 350px;
     }
 `
 
 const DivTextoObj = styled.div`
      width: 600px;
-
-     @media (max-width: 768px){
-        width: 190px;
-    };
 `;
 
 const ImagemLogo = styled.img`

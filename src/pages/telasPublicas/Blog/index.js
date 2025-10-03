@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import { Row, Col } from 'react-bootstrap'; // Importe Row e Col
+import { Row, Col } from 'react-bootstrap';
+
+import fundo from "../../../img/FundoImg.png"
 
 const noticias = [
     {
@@ -26,42 +28,80 @@ const noticias = [
         id: 4,
         titulo: "Quarta notícia",
         conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/f1/9b/b1/f19bb155ae63f6e551cae96b71f96f0b.jpg"
+        caminho_imagem: "https://i.pinimg.com/736x/95/a7/de/95a7de79e70485e7dc04687c3bfe7f04.jpg"
     },
     {
         id: 5,
         titulo: "Quinta notícia",
         conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/f1/9b/b1/f19bb155ae63f6e551cae96b71f96f0b.jpg"
+        caminho_imagem: "https://i.pinimg.com/736x/c3/ce/db/c3cedb115e5486bd1dc8ae334199b591.jpg"
     },
     {
         id: 6,
         titulo: "Sexta notícia",
         conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/f1/9b/b1/f19bb155ae63f6e551cae96b71f96f0b.jpg"
+        caminho_imagem: "https://i.pinimg.com/736x/78/0d/48/780d4805058b989df68bb00a562fdbd5.jpg"
     }
 ]
 
 const Body = styled.div`
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     min-height: 90vh;
     position: relative;
-    gap: 10px;
-    padding: 20px;
-    text-align: center;
+    
+    background-image: url(${fundo});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-bottom: 100px;
+
+    &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-color: #a3f0ff7c; 
+        z-index: 1;
+    }
 
     @media (max-width: 768px){
+        background-image: none;
         padding-bottom: 0;
     }
 `;
+
+
+const Container = styled.div`
+    background-color: #fefefeff;
+    box-shadow: 0 4px 8px 0 #56268594;
+    max-width: 1280px; 
+    min-height: 90vh;
+    margin-top: 61px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    overflow-x: hidden;
+    padding: 20px;
+
+    @media (max-width: 768px){
+        width: 100%; 
+        height: 100%;
+        margin-top: 0;
+        padding: 8px;
+        box-shadow: none;
+        border-radius: none;
+    }
+`;
+
 
 //Containers 
 const ContainerCardsNews = styled(Row)` // Use o componente Row
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; // Permite que os cards quebrem a linha
+    flex-wrap: wrap;
 `;
 
 const ContainerCardPrincipal = styled.div`
@@ -75,7 +115,7 @@ const ContainerCardPrincipal = styled.div`
 const TituloPrincipal = styled.h1`
     font-family: "Chicle", serif !important;
     color: #195674;
-    font-size: 80px;
+    font-size: 60px;
     text-shadow: 1px 0.5px 1px #58268b65;
     margin-inline: 30px;
 
@@ -104,6 +144,7 @@ const StyledCBody = styled(Card.Body)`
     flex-direction: column;
     justify-content: flex-start;
     position: relative; 
+    text-align: left;
 
     background-image: url(${(props) => props.imagem_url});
     background-size: cover;
@@ -124,6 +165,7 @@ const StyledCTitle = styled(Card.Title)`
     font-size: 30px;
     font-weight: bold;
     z-index: 3;
+    text-align: left;
 
     @media{
         font-size: 30px;
@@ -133,9 +175,8 @@ const StyledCTitle = styled(Card.Title)`
 const StyledCText = styled(Card.Text)`
     font-family: "Fredoka Variable", sans-serif !important;
     color: #ffffffff;
-    font-size: 15px;
+    font-size: 13px;
     z-index: 3;
-
     @media{
         font-size: 20px;
     }
@@ -200,13 +241,14 @@ const StyledCButton = styled(Button)`
 export default function Blog(){
     return(
         <Body>
-            <div style={{width: '100%', textAlign: 'center', marginBottom: 60, height: 110}}>
+            <Container>
+                <div style={{width: '100%', textAlign: 'center', marginBottom: 60, height: 110}}>
                 <TituloPrincipal>Blog</TituloPrincipal>
                 <Subtitulo>Acompanhe nosso trabalho!</Subtitulo>
             </div>
 
             <ContainerCardPrincipal>
-                <StyledCPrincipal style={{ width: '100%', maxWidth: '52rem', height: 'auto' }}>
+                <StyledCPrincipal style={{ width: '100%', maxWidth: '53rem', height: 'auto' }}>
                     <StyledCBody imagem_url={"https://i.pinimg.com/474x/d2/87/1c/d2871c8da6df4cc2ee74f98a3dc7af33.jpg"}>
                         <StyledCTitle>Notícia mais recente</StyledCTitle>
                         <StyledCText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.</StyledCText>
@@ -229,7 +271,7 @@ export default function Blog(){
                     </Col>
                 ))}
             </ContainerCardsNews>
-            
+            </Container>
         </Body>
     )
 }
