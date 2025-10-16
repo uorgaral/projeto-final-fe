@@ -78,16 +78,6 @@ const InputForm = styled(Form.Control)`
   }
 `;
 
-const TituloPrincipal = styled.h1`
-    font-family: "Chicle", serif !important;
-    color: #683f91ff;
-    font-size: 40px;
-    text-shadow: 2px 1px 2px #58268b65;
-
-    @media (max-width: 768px){
-        font-size: 50px
-    };
-`
 
 const StyledButton = styled(Button)`
     font-family: 'Fredoka Variable', sans-serif;
@@ -102,6 +92,30 @@ const StyledButton = styled(Button)`
         background-color: #195674;
     };
 `
+
+//TITULOS
+const TituloPrincipal = styled.h1`
+    font-family: "Chicle", serif !important;
+    color: #5C1D9C;
+    font-size: 80px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-inline: 30px;
+
+    @media (max-width: 768px){
+        font-size: 40px;
+        margin-inline: 10px;
+    }
+`;
+
+const Subtitulo = styled.p`
+    font-family: "Fredoka Variable", sans-serif !important;
+    color: #3B83A6;
+    font-size: 30px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-left: 20px;
+    margin-bottom: 0;
+`;
+
 
 
 

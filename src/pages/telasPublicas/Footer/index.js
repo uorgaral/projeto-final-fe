@@ -3,6 +3,7 @@ import { BiLogoInstagramAlt } from "react-icons/bi";
 import { AiOutlineWhatsApp } from "react-icons/ai";
 import Logo from '../../../img/Logo.png'
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 const Foot = styled.div`
     background-color: #E8DEEF;
@@ -104,14 +105,12 @@ export default function Footer(){
                         </thead>
                         <tbody>
                             <tr>
-                            <td>Página Inicial</td>
-                            <td>Sobre</td>
-                            <td>Galeria</td>
+                            <td><Link to="/sobre"/>Sobre</td>
+                            <td><Link to="/galeria"/>Galeria</td>
                             </tr>
                             <tr>
-                            <td>Blog</td>
-                            <td>Calendário</td>
-                            <td>Login</td>
+                            <td><Link to="/blog"/>Blog</td>
+                            <td><Link to="/login"/>Login</td>
                             </tr>
                         </tbody>
                     </StyledTable>

@@ -41,17 +41,6 @@ const ContTitulo = styled.div`
     padding: 15px;
 `
 
-const TituloPrincipal = styled.h1`
-    font-family: "Style Script", cursive !important;
-    color: #683f91ff;
-    font-size: 80px;
-    text-shadow: 2px 2px 4px #48207075;
-
-    @media (max-width: 768px){
-        font-size: 50px
-    };
-`
-
 const ContCard = styled.div`
     width: 100%;
     display: flex;
@@ -84,6 +73,30 @@ const StyledCardBody = styled(Card.Body)`
   flex-direction: column;
   justify-content: space-between;
 `;
+
+//TITULOS
+const TituloPrincipal = styled.h1`
+    font-family: "Chicle", serif !important;
+    color: #5C1D9C;
+    font-size: 80px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-inline: 30px;
+
+    @media (max-width: 768px){
+        font-size: 40px;
+        margin-inline: 10px;
+    }
+`;
+
+const Subtitulo = styled.p`
+    font-family: "Fredoka Variable", sans-serif !important;
+    color: #3B83A6;
+    font-size: 30px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-left: 20px;
+    margin-bottom: 0;
+`;
+
 
 
 

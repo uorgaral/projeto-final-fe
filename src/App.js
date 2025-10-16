@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
 import BoasVindas from './pages/telasPublicas/Inicio'
@@ -8,6 +9,7 @@ import PaginaInicial from './pages/telasPublicas/PaginaInicial'
 import Login from './pages/telasPublicas/Login'
 import Sobre from './pages/telasPublicas/Sobre'
 import Blog from './pages/telasPublicas/Blog'
+import Galeria from './pages/telasPublicas/Galeria'
 import AddBlog from './pages/telasPrivadas/AddBlog'
 import './App.css'
 
@@ -32,14 +34,23 @@ const ContentWrapper = styled.div`
 
 function App() {
   return (
+    <BrowserRouter>
       <MainContainer>
-      <Header />
-      <ContentWrapper>
-        <AddBlog/>
-      </ContentWrapper>
-      <Footer />
-    </MainContainer>
-    
+        <Header />
+        <ContentWrapper>
+          <Routes>
+            <Route path="/" element={<PaginaInicial />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/galeria" element={<Galeria />} />
+            <Route path="/login" element={<Login />} />
+            {/* Em um projeto real, você usaria um componente PrivateRoute aqui */}
+            <Route path="/usuarios/adicionarPost" element={<AddBlog />} />
+          </Routes>
+        </ContentWrapper>
+        <Footer />
+      </MainContainer>
+    </BrowserRouter>
   )
 }
 

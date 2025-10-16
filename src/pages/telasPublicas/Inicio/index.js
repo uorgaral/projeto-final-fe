@@ -62,19 +62,6 @@ const ContTitulo = styled.div`
     }
 `
 
-const Titulo = styled.h1`
-    font-family: "Style Script", cursive !important;
-    font-size: 50px;
-    color: #9B6BCB;
-    text-shadow: 3px 3px 5px #9B6BCB7d;
-    margin: 0;
-    text-align: center;
-
-    @media (max-width: 768px){
-        font-size: 30px;
-    }
-`;
-
 const ContImg = styled.div`
     width: 100vw;
     margin-top: 50px;
@@ -82,12 +69,35 @@ const ContImg = styled.div`
     align-items: center;
     text-align: center
 `
+//TITULOS
+const TituloPrincipal = styled.h1`
+    font-family: "Chicle", serif !important;
+    color: #5C1D9C;
+    font-size: 80px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-inline: 30px;
+
+    @media (max-width: 768px){
+        font-size: 40px;
+        margin-inline: 10px;
+    }
+`;
+
+const Subtitulo = styled.p`
+    font-family: "Fredoka Variable", sans-serif !important;
+    color: #3B83A6;
+    font-size: 30px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-left: 20px;
+    margin-bottom: 0;
+`;
+
 
 export default function BoasVindas(){
     return(
         <Body>
             <ContTitulo>
-                <Titulo>Seja bem vindo!</Titulo>
+                <TituloPrincipal>Seja bem vindo!</TituloPrincipal>
             </ContTitulo>
 
             <ContImg>

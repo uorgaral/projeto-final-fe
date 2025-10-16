@@ -193,14 +193,14 @@ const Container = styled.div`
 
 //TITULOS
 const TituloPrincipal = styled.h1`
-    font-family: "Style Script", cursive !important;
+    font-family: "Chicle", serif !important;
     color: #5C1D9C;
     font-size: 80px;
     text-shadow: 1px 0.5px 1px #58268b65;
     margin-inline: 30px;
 
     @media (max-width: 768px){
-        font-size: 55px;
+        font-size: 40px;
         margin-inline: 10px;
     }
 `;
