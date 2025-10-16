@@ -8,8 +8,7 @@ import PaginaInicial from './pages/telasPublicas/PaginaInicial'
 import Login from './pages/telasPublicas/Login'
 import Sobre from './pages/telasPublicas/Sobre'
 import Blog from './pages/telasPublicas/Blog'
-// import AddBlog from './pages/telasPublicas/AddBlog'
-// import AddEvento from './pages/telasPublicas/AddEvento'
+import AddBlog from './pages/telasPrivadas/AddBlog'
 import './App.css'
 
 import "@fontsource/style-script"; // título Nome
@@ -36,7 +35,7 @@ function App() {
       <MainContainer>
       <Header />
       <ContentWrapper>
-        <Blog/>
+        <AddBlog/>
       </ContentWrapper>
       <Footer />
     </MainContainer>

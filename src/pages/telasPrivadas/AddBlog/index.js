@@ -38,8 +38,8 @@ const Body = styled.div`
 const Container = styled.div`
   background-color: #fefefeff;
   box-shadow: 0 4px 8px 0 #56268594;
-  width: 500px;
-  height: 400px;
+  width: 600px;
+  height: 600px;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
@@ -48,17 +48,23 @@ const Container = styled.div`
   position: relative;
   z-index: 2;
   padding: 20px;
+  overflow: auto;
+  gap: 15px;
 
   @media (max-width: 768px){
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 600px;
+    overflow: none;
+    align-items: center;
   }
 `;
 
 const TextoForm = styled(Form.Label)`
     font-family: "Be Vietnam Pro", sans-serif !important;
     color: #164a65ff;
-    font-size: 20px;
+    font-size: 18px;
+    margin-bottom: 5px;
+    display: block;
 
     @media (max-width: 768px){
     font-size: 17px
@@ -69,11 +75,12 @@ const InputForm = styled(Form.Control)`
     border: 2px solid #3B83A6;
     font-family: 'Fredoka Variable', sans-serif;
     background-color: #e8e8e8ff;
-    width: 350px;
+    width: 450px;
     height: 40px;
+    border-radius: 5px;
 
     @media (max-width: 768px){
-    width: 240px;
+    width: 300px;
     height: 40px;
   }
 `;
@@ -82,7 +89,7 @@ const TituloPrincipal = styled.h1`
     font-family: "Chicle", serif !important;
     color: #683f91ff;
     font-size: 40px;
-    text-shadow: 2px 1px 2px #58268b65;
+    text-shadow: 1px 1px 2px #58268b65;
 
     @media (max-width: 768px){
         font-size: 50px
@@ -103,34 +110,60 @@ const StyledButton = styled(Button)`
     };
 `
 
+const FormWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: flex-start;
+    max-width: 450px; 
+    margin: 0 auto;
+`;
 
 
-export default function Login(){
+
+export default function AddBlog(){
     return(
         <>
             <Body>
                 <Container>
 
-                    <TituloPrincipal>Login</TituloPrincipal>
+                    <TituloPrincipal>Adicionar Novo Post</TituloPrincipal>
+                    <FormWrapper>
+                        <Form>
+                                <Form.Group className="mb-3" controlId="formGroupName">
+                                <TextoForm>Nome do usuário:</TextoForm>
+                                <InputForm as="textarea" placeholder="Insira seu nome" />
+                            </Form.Group>
 
-                    <Form>
-                            <Form.Group className="mb-3" controlId="formGroupEmail">
-                            <TextoForm>Insira seu e-mail:</TextoForm>
-                            <InputForm type="email" placeholder="e-mail" />
-                        </Form.Group>
-                        <Form.Group className="mb-3" controlId="formGroupPassword">
-                            <TextoForm>Insira sua senha:</TextoForm>
-                            <InputForm type="password" placeholder="senha"/>
-                        </Form.Group>
-                    </Form>
+                            <Form.Group className="mb-3" controlId="formGroupTitle">
+                                <TextoForm>Título: </TextoForm>
+                                <InputForm as="textarea" placeholder="Título do post"/>
+                            </Form.Group>
+
+                            <Form.Group className="mb-3" controlId="formGroupConteudo">
+                                <TextoForm>Conteúdo: </TextoForm>
+                                <InputForm 
+                                as="textarea"
+                                placeholder="Conteúdo do post"
+                                rows={6}
+                                />
+                            </Form.Group>
+
+
+                            <Form.Group className="mb-3" controlId="formGroupImage">
+                                <TextoForm>Imagem</TextoForm>
+                                <InputForm type="file" placeholder="Imagem"/>
+                            </Form.Group>
+                        </Form>
+                    </FormWrapper>
 
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                         <StyledButton as="input" type="submit" value="Enviar" />
-                        <p style={{fontSize: 12, fontFamily: 'Fredoka Variable', marginTop: 10, color: '#cbcbcbff'}}>Apenas pessoas autorizadas tem cadastro.</p>
+                        <p style={{fontSize: 12, fontFamily: 'Fredoka Variable', marginTop: 10, color: '#adadadff'}}>Apenas pessoas autorizadas tem cadastro.</p>
                     </div>
                 </Container>
             </Body>
         </>
-        
     )
 }
