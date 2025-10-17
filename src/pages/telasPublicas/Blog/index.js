@@ -2,47 +2,10 @@ import styled from "styled-components";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Row, Col } from 'react-bootstrap';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 
 import fundo from "../../../img/FundoImg.png"
-
-const noticias = [
-    {
-        id: 1,
-        titulo: "Primeira notícia",
-        conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non efficitur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/03/1a/bd/031abd4e12d32ad150880bd978742fa2.jpg"
-    },
-    {
-        id: 2,
-        titulo: "Segunda notícia",
-        conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non efficitur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/57/b3/4e/57b34e9fa725c2720b23b56aa5ef85de.jpg"
-    },
-    {
-        id: 3,
-        titulo: "Terceira notícia",
-        conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/f1/9b/b1/f19bb155ae63f6e551cae96b71f96f0b.jpg"
-    },
-    {
-        id: 4,
-        titulo: "Quarta notícia",
-        conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/95/a7/de/95a7de79e70485e7dc04687c3bfe7f04.jpg"
-    },
-    {
-        id: 5,
-        titulo: "Quinta notícia",
-        conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/c3/ce/db/c3cedb115e5486bd1dc8ae334199b591.jpg"
-    },
-    {
-        id: 6,
-        titulo: "Sexta notícia",
-        conteudo: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.",
-        caminho_imagem: "https://i.pinimg.com/736x/78/0d/48/780d4805058b989df68bb00a562fdbd5.jpg"
-    }
-]
 
 const Body = styled.div`
     display: flex;
@@ -239,6 +202,42 @@ const StyledCButton = styled(Button)`
 
 
 export default function Blog(){
+    const [post, setPost] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const BACKEND_URL = "http://localhost:3000"
+        const fetchPosts = async () => {
+            try {
+                const response = await axios.get(`${BACKEND_URL}/posts`);
+                setPost(response.data);
+                setLoading(false);
+            }catch (err) {
+                console.error("Erro ao buscar posts:", err);
+                setError('Não foi possível carregar as publicações. Verifique se o servidor backend está rodando e se há erro de CORS.');
+                setLoading(false);
+            };
+        };
+        
+            fetchPosts();
+    }, []);
+
+    if (loading) {
+        return <div>Carregando...</div>;
+    };
+
+    if (error) {
+        return <div><p style={{color: 'red'}}>{error}</p></div>;
+    };
+
+    const postPrincipal = post[0];
+    const postsRestantes = post.slice(1);
+
+   if (post.length === 0) {
+    return <Body><Container><div>Nenhum post disponível.</div></Container></Body>;  
+}
+
     return(
         <Body>
             <Container>
@@ -249,9 +248,9 @@ export default function Blog(){
 
             <ContainerCardPrincipal>
                 <StyledCPrincipal style={{ width: '100%', maxWidth: '53rem', height: 'auto' }}>
-                    <StyledCBody imagem_url={"https://i.pinimg.com/474x/d2/87/1c/d2871c8da6df4cc2ee74f98a3dc7af33.jpg"}>
-                        <StyledCTitle>Notícia mais recente</StyledCTitle>
-                        <StyledCText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tincidunt nec orci non effici tur. Morbi sit amet egestas quam. Aliquam non ligula luctus, ultricies lectus sed, vestibulum libero. Sed leo tellus, suscipit a magna et, viverra tempor leo.</StyledCText>
+                    <StyledCBody imagem_url={postPrincipal.caminho_imagem}>
+                        <StyledCTitle>{postPrincipal.Subtitulo}</StyledCTitle>
+                        <StyledCText>{postPrincipal.conteudo}</StyledCText>
                         <StyledCButton>Saiba mais</StyledCButton>
                     </StyledCBody>
                 </StyledCPrincipal>
@@ -259,12 +258,12 @@ export default function Blog(){
 
 
             <ContainerCardsNews>
-                {noticias.map((noticia) => (
-                    <Col xs={12} md={6} lg={4} key={noticia.id}>
+                {postsRestantes.map((postsRestantes) => (
+                    <Col xs={12} md={6} lg={4} key={postsRestantes.id}>
                         <StyledCNews>
-                            <StyledCBody imagem_url={noticia.caminho_imagem}>
-                                <StyledCTitleNews>{noticia.titulo}</StyledCTitleNews>
-                                <StyledCTextNews>{noticia.conteudo}</StyledCTextNews>
+                            <StyledCBody imagem_url={postsRestantes.caminho_imagem}>
+                                <StyledCTitleNews>{postsRestantes.titulo}</StyledCTitleNews>
+                                <StyledCTextNews>{postsRestantes.conteudo}</StyledCTextNews>
                                 <StyledCButton>Saiba mais</StyledCButton>
                             </StyledCBody>
                         </StyledCNews>

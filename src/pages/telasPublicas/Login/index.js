@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Form from 'react-bootstrap/Form';
 import fundo from '../../../img/FundoImg.png'
 import Button from 'react-bootstrap/Button';
+import React, {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Body = styled.div`
@@ -39,7 +41,7 @@ const Container = styled.div`
   background-color: #fefefeff;
   box-shadow: 0 4px 8px 0 #56268594;
   width: 500px;
-  height: 400px;
+  min-height: 400px;
   border-radius: 10px;
   display: flex;
   justify-content: space-around;
@@ -120,6 +122,45 @@ const Subtitulo = styled.p`
 
 
 export default function Login(){
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    
+        const navigate = useNavigate();
+    
+        const executaSubmit = async (event) =>{
+            event.preventDefault();//previne recarregamento padrão da página
+            setLoading(true);
+            setError('');
+    
+            try{
+                const resposta = await fetch('http://localhost:3000/login',{
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({email,senha}),//envia dados como json
+                });
+                const dados = await resposta.json();//lê os dados como JSON
+    
+                if(resposta.ok){
+                    alert('Login bem-sucedido');
+                    console.log('Dados da API', dados);
+                    localStorage.setItem('usuario', JSON.stringify(dados.usuario));// salva dados usuário localstorage
+                    navigate('/');
+                }else{
+                    setError(dados.message ||'Erro ao fazer Login. Tente novamente');
+                }
+    
+            }catch(erro){
+                console.log('Falha ao conectar a API', erro);
+                setError('Não foi possível conectar ao servidor. Verifique sua conexão' + erro);
+            }finally{
+                setLoading(false);
+            }
+        }
+
     return(
         <>
             <Body>
@@ -127,21 +168,25 @@ export default function Login(){
 
                     <TituloPrincipal>Login</TituloPrincipal>
 
-                    <Form>
+                    <Form onSubmit={executaSubmit}>
                             <Form.Group className="mb-3" controlId="formGroupEmail">
                             <TextoForm>Insira seu e-mail:</TextoForm>
-                            <InputForm type="email" placeholder="e-mail" />
+                            <InputForm type="email" className="form-control" id="email" name="email" placeholder="Insira seu E-mail"value={email} onChange={(e) => setEmail(e.target.value)} required/>
                         </Form.Group>
                         <Form.Group className="mb-3" controlId="formGroupPassword">
                             <TextoForm>Insira sua senha:</TextoForm>
-                            <InputForm type="password" placeholder="senha"/>
+                            <InputForm type="password" className="form-control" id="senha" name="senha" placeholder="Insira sua Senha" value={senha} onChange={(e) => setSenha(e.target.value)} required/>
                         </Form.Group>
-                    </Form>
+                        
+                    {error && <div className="alert alert-danger" role="alert">{error}</div>}
 
                     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-                        <StyledButton as="input" type="submit" value="Enviar" />
+                        <StyledButton type="submit" disabled={loading}>{loading ? 'Entrando...': 'Login'}</StyledButton>
                         <p style={{fontSize: 12, fontFamily: 'Fredoka Variable', marginTop: 10, color: '#cbcbcbff'}}>Apenas pessoas autorizadas tem cadastro.</p>
                     </div>
+                    </Form>
+
+                    
                 </Container>
             </Body>
         </>

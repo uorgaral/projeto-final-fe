@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import fundo from "../../../img/FundoImg.png"
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Body = styled.div`
     display: flex;
@@ -74,47 +77,77 @@ const Subtitulo = styled.p`
     font-size: 30px;
 `;
 
+const GridGaleria = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Cria colunas responsivas */
+    gap: 30px; 
+    padding: 20px;
+    justify-items: center;
+`;
 
-const DivCard = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-`
-
-//Card
-
+// Card (revisado para usar a largura máxima, já que o grid cuida da responsividade)
 const StyledCard = styled(Card)`
-    width: 25rem;
+    width: 100%; /* Largura máxima dentro do item do grid */
+    max-width: 400px;
     border: none;
-    align-items: center;
     box-shadow: 0 4px 6px 0 rgba(42, 0, 85, 0.6);
-`
-
-
-
+`;
 
 
 export default function Galeria(){
+    const [imagens,, setImagens] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    
+        useEffect(() => {
+            const BACKEND_URL = "http://localhost:3000"
+            const fetchImagem = async () => {
+                try {
+                    const response = await axios.get(`${BACKEND_URL}/galeria`);
+                    setImagens(response.data);
+                    setLoading(false);
+                }catch (err) {
+                    console.error("Erro ao buscar imagens:", err);
+                    setError('Não foi possível carregar as imagens. Verifique se o servidor backend está rodando e se há erro de CORS.');
+                    setLoading(false);
+                };
+            };
+            
+                fetchImagem();
+        }, []);
+    
+        if (loading) {
+            return <div>Carregando...</div>;
+        };
+    
+        if (error) {
+        return <div><p style={{color: 'red'}}>{error}</p></div>;
+        };
+
+    
+       if (imagens.length === 0) {
+        return <Body><Container><div>Nenhuma imagem disponível.</div></Container></Body>;  
+    }
+
     return(
         <Body>
             <Container>
                 <TituloPrincipal>Galeria de Fotos</TituloPrincipal>
-                <DivCard>
-                <StyledCard>
-                    <Card.Img variant="top" src="holder.js/100px180" />
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                </StyledCard>
-                </DivCard>
+
+                <GridGaleria>
+                    {imagens.map((item, index) => (
+                        <StyledCard key={item.idimagem}>
+                            <Card.Img
+                                variant="top"
+                                src={item.caminho_imagem}
+                                style={{ height: '250px', objectFit: 'cover' }}></Card.Img>
+                            <Card.Body>
+                                <Card.Title>{item.titulo || `#{index + 1}`}</Card.Title>
+                                <Button as={Link} to={`/blog/${item.idPost}`}>Veja mais</Button>
+                            </Card.Body>
+                        </StyledCard>
+                    ))}
+                </GridGaleria>
             </Container>
         </Body>
     )
