@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Card from 'react-bootstrap/Card';
 
-import logoComFundo from '../../../img/LogoComFundo.jpg'
+import dados from '../../../img/dados.png'
 import Logo from "../../../img/Logo.png";
 import fundo from "../../../img/FundoImg.png"
 
@@ -170,7 +170,7 @@ const Body = styled.div`
 const Container = styled.div`
     background-color: #fefefeff;
     box-shadow: 0 4px 8px 0 #56268594;
-    max-width: 1280px; 
+    width: 1280px; 
     min-height: 90vh;
     margin-top: 61px;
     border-radius: 10px;
@@ -191,11 +191,12 @@ const Container = styled.div`
 `;
 
 
-//TITULOS
+
+//Textos
 const TituloPrincipal = styled.h1`
     font-family: "Chicle", serif !important;
     color: #5C1D9C;
-    font-size: 80px;
+    font-size: 60px;
     text-shadow: 1px 0.5px 1px #58268b65;
     margin-inline: 30px;
 
@@ -217,8 +218,20 @@ const Subtitulo = styled.p`
 const Texto = styled.p`
     font-family: "Be Vietnam Pro", sans-serif !important;
     color: #000000ff;
-    font-size: 22px;
+    font-size: 20px;
     margin-left: 20px;
+
+    @media(max-width: 768px){
+        font-size: 20px;
+        margin-left: 0;
+    }
+`;
+
+const TextoAreas = styled.p`
+    font-family: Fredoka Variable, sans-serif;
+    color: #383838ff;
+    font-size: 18px;
+    margin-bottom: 3px;
 
     @media(max-width: 768px){
         font-size: 20px;
@@ -317,30 +330,11 @@ const TextoCard = styled(Card.Text)`
     font-size: 14px;
 `;
 
-const ContTextoObjetivo = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 1200px;
 
-    @media(max-width: 768px){
-    display: flex;
-    flex-direction: row;
-    width: 350px;
-    }
-`
-
-const DivTextoObj = styled.div`
-     width: 600px;
-`;
-
-const ImagemLogo = styled.img`
-    width: 200px;
-    height: 200px; 
-    border-radius: 100%;
+const Imagem = styled.img`
+    width: 300px;
+    height: 300px; 
+    border-radius: 10px;
     box-shadow: 0 4px 8px 0 #4321667d;
 
     @media (max-width: 768px){
@@ -355,49 +349,77 @@ export default function Sobre(){
             <Container>
 
                 <div style={{display: 'flex', flexDirection: 'row', justifyContent: "space-around", alignItems: 'center'}}>
-                    <div style={{marginTop: 35, width: 900, alignItems: 'center'}}>
+                    <div style={{marginTop: 35, width: 1000, alignItems: 'center'}}>
                         <ContTitulo>
                         <ImagemTopo src={Logo} style={{width: 70, height: 70}}/>
                         <TituloPrincipal>Projeto Guardiãs das Águas</TituloPrincipal>
                         </ContTitulo>
 
-                        <Texto>As mudanças climáticas e a poluição ambiental escancaram aos olhos de todos o mau uso dos bens 
-                            e serviços que a natureza nos oferece, despertando a atenção para os impactos das ações antrópicas e seus 
-                            efeitos negativos sobre o meio ambiente, economias e comunidades.</Texto>
-                        <Texto>O saneamento ambiental trata do abastecimento de água potável, tratamento de esgoto, limpeza urbana e gestão 
-                            de resíduos sólidos, drenagem pluvial, controle de doenças, controle e prevenção de poluição do ar, água e solo.</Texto>
-                        <Texto>Isso implica na necessidade de profissionais de diversas áreas para atuar na resolução de problemas locais, que impactam o global.</Texto>
-                        <Texto>Este projeto visa incentivar a formação de Guardiãs das Águas (alunas de ensino básico e superior) em cidades de quatro 
-                            regiões do Brasil para atuarem em pesquisas para o desenvolvimento científico e tecnológico e a inovação no 
-                            tocante ao saneamento ambiental.</Texto>
-                    </div>
-                </div>
-                
+                        <div style={{width: '100%', display: 'flex', flexDirection: 'row'}}>
+                            <div style={{width: '50%', marginRight: 100}}>
+                                <Texto>O projeto Guardiãs das Águas - meninas pelo Saneamento tem apoio do
+                                CNPq/MCTI/MMulheres (Chamada nº
+                                31/2023), com vigência até 2028, busca
+                                incentivar meninas e mulheres a atuarem
+                                em pesquisas sobre conservação
+                                ambiental e saneamento.
+                                As Guardiãs das Águas são alunas de
+                                ensino básico e superior, que irão
+                                desenvolver pesquisas em diversas áreas
+                                do saneamento.
+                            </Texto>
+                            </div>
+                            <Imagem src={dados}/>
+                        </div>
 
-                <ContTextoObjetivo>
-                    <DivTextoObj>
-                        <ContSubtitulo>
+
+                        <div style={{marginTop: 40, marginBottom: 60}}>
+                            <ContSubtitulo>
                         <Subtitulo>Nosso objetivo</Subtitulo>
                         </ContSubtitulo>
-
-                        <Texto>1. Estimular o interesse, o ingresso, a formação de grupos de Guardiãs das Águas 
-                            promovendo o pensamento crítico e participativo de meninas acerca da cidadania, 
-                            empoderamento feminino e meio ambiente, para que possam estudar e atuar profissionalmente em carreiras ligadas às
-                            Ciências Exatas, Engenharias e Computação, principalmente no saneamento ambiental.</Texto>
-                        <Texto>2. Fortalecer grupos locais que desenvolvem pesquisas relacionadas ao saneamento ambiental, 
-                            ampliando o debate com a sociedade civil local a partir de ações extensionistas.</Texto>
-                        <Texto>3. Formar mulheres e meninas para atuar com agentes multiplicadoras nas comunidades a quem pertencem, 
-                            e assim estimular a percepção ambiental da comunidade em relação a importância do saneamento ambiental, 
-                            sobretudo em relação à conservação dos recursos hídricos, ao tratamento de água e esgoto, a redução e destinação 
-                            correta dos resíduos sólidos, e compreensão das fontes de poluição e métodos de controle.</Texto>
-                    </DivTextoObj>
-
-                            <div>
-                                <ImagemLogo src={logoComFundo}/>
+                        <Texto>Promover o pensamento crítico acerca da cidadania, empoderamento feminino e meio ambiente;</Texto>
+                        <Texto>Incentivar a atuação de meninas nas carreiras das áreas exatas, engenharias e computação;</Texto>
+                        <Texto>Fortalecer grupos locais que desenvolvem pesquisas relacionadas ao saneamento ambiental;</Texto>
+                        <Texto>Mulheres e meninas atuando como agentes multiplicadoras em suas comunidades, estimulando a percepção ambiental em relação a
+                            importância do saneamento ambiental, sobretudo em relação a concervação dos recursos hídricos.</Texto>
+                        </div>
+                        
+                        
+                        
+                        <ContSubtitulo>
+                                <Subtitulo>Áreas Temáticas</Subtitulo>
+                        </ContSubtitulo>
+                        <div style={{width: '100%', height: 600, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around'}}>
+                            <Card style={{width: '20rem', height: 530,boxShadow: '0px 4px 6px 0px rgba(42, 0, 85, 0.6)', border: 'none'}}>
+                                <Card.Body> 
+                                    <Card.Title style={{fontFamily: "Fredoka Variable, sans-serif", color: '#5C1D9C', fontSize: 23}}>Saneamento Ambiental</Card.Title>
+                                    <TextoAreas>- Qualidade do ar, das águas e do solo</TextoAreas>
+                                    <TextoAreas>- Ecologia aplicada a eng. sanitária</TextoAreas>
+                                    <TextoAreas>- Análise de dados</TextoAreas>
+                                    <TextoAreas>- Divulgação Científica</TextoAreas>
+                                    <TextoAreas>- Recursos hídricos</TextoAreas>
+                                    <TextoAreas>- Análise de traços e Quím. ambiental</TextoAreas>
+                                    <TextoAreas>- Ensino de ciências e matemática</TextoAreas>
+                                    <TextoAreas>- Tratamento de águas de abastecimento e residuárias</TextoAreas>
+                                    <TextoAreas>- Ciências ambientais</TextoAreas>
+                                    <TextoAreas>- Resíduos sólidos, domésticos e industriais</TextoAreas>
+                                    <TextoAreas>- Sensoriamento remoto da atmosfera</TextoAreas>
+                                </Card.Body>
+                            </Card>
+                            <Card style={{width: '20rem', height: 530,boxShadow: '0px 4px 6px 0px rgba(42, 0, 85, 0.6)', border: 'none'}}>
+                                <Card.Body> 
+                                    <Card.Title style={{fontFamily: "Fredoka Variable, sans-serif", color: '#5C1D9C', fontSize: 23}}>Direitos Humanos</Card.Title>
+                                    <TextoAreas>- Invisibilidade das mulheres nas Ciências exata, engenharia e computação</TextoAreas>
+                                    <TextoAreas>- Desafios para o ingresso e permanênciade meninas e mulheres na ciência</TextoAreas>
+                                    <TextoAreas>- Estereótipos e desigualdades de gênero</TextoAreas>
+                                    <TextoAreas>- Assédio moral e sexual e suas consequências</TextoAreas>
+                                    <TextoAreas>- Maternidade e carreira</TextoAreas>
+                                </Card.Body>
+                            </Card>
                             </div>
-                </ContTextoObjetivo>
-
-
+                        </div>
+                </div>
+                        
 
                 <ContSubtitulo>
                 <Subtitulo>Quem somos</Subtitulo>

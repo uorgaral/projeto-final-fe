@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import img from "../../../img/FundoImg.png"
 import Logo from "../../../img/Logo.png"
+import { Link } from "react-router-dom";
 
 const Body = styled.div`
     display: flex;
@@ -39,10 +40,15 @@ const Body = styled.div`
         z-index: 1;
   }
 `
-const Img = styled.img`
+const Img = styled(Link)`
     width: 400px;
     height: 400px;
     margin: 0 auto;
+
+    background-image: url(${Logo});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
     @media (max-width: 768px){
         width: 200px;
@@ -101,7 +107,7 @@ export default function BoasVindas(){
             </ContTitulo>
 
             <ContImg>
-                <Img src={Logo}/>
+                <Img as={Link} to="/inicio" src={Logo}/>
             </ContImg>
                 
         </Body>

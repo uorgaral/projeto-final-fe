@@ -37,8 +37,8 @@ const Body = styled.div`
 const Container = styled.div`
     background-color: #fefefeff;
     box-shadow: 0 4px 8px 0 #56268594;
-    width: 1300px; 
-    min-height: 80vh;
+    width: 1280px; 
+    min-height: 90vh;
     margin-top: 61px;
     border-radius: 10px;
     display: flex;
@@ -60,47 +60,65 @@ const Container = styled.div`
 //Textos
 const TituloPrincipal = styled.h1`
     font-family: "Chicle", serif !important;
-    color: #195674;
+    color: #5C1D9C;
     font-size: 60px;
     text-shadow: 1px 0.5px 1px #58268b65;
     margin-inline: 30px;
 
     @media (max-width: 768px){
-        font-size: 55px;
+        font-size: 40px;
         margin-inline: 10px;
     }
 `;
 
 const Subtitulo = styled.p`
     font-family: "Fredoka Variable", sans-serif !important;
-    color: #9B6BCB;
+    color: #3B83A6;
     font-size: 30px;
+    text-shadow: 1px 0.5px 1px #58268b65;
+    margin-left: 20px;
+    margin-bottom: 0;
 `;
+
+
 
 const GridGaleria = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); /* Cria colunas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 30px; 
     padding: 20px;
     justify-items: center;
 `;
 
-// Card (revisado para usar a largura máxima, já que o grid cuida da responsividade)
+
 const StyledCard = styled(Card)`
-    width: 100%; /* Largura máxima dentro do item do grid */
-    max-width: 400px;
+    width: 350px;
+    height: 350px;
     border: none;
     box-shadow: 0 4px 6px 0 rgba(42, 0, 85, 0.6);
 `;
 
+const StyledCBody = styled(Card.Body)`
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: left;
+
+    background-image: url(${(props) => props.imagem_url});
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+`;
+
 
 export default function Galeria(){
-    const [imagens,, setImagens] = useState([]);
+    const [imagens, setImagens] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const BACKEND_URL = "http://localhost:3000"
     
         useEffect(() => {
-            const BACKEND_URL = "http://localhost:3000"
+            
             const fetchImagem = async () => {
                 try {
                     const response = await axios.get(`${BACKEND_URL}/galeria`);
@@ -132,19 +150,18 @@ export default function Galeria(){
     return(
         <Body>
             <Container>
-                <TituloPrincipal>Galeria de Fotos</TituloPrincipal>
+
+                <div style={{width: '100%', textAlign: 'center', marginBottom: 20}}>
+                    <TituloPrincipal>Galeria de Fotos</TituloPrincipal>
+                </div>
 
                 <GridGaleria>
                     {imagens.map((item, index) => (
                         <StyledCard key={item.idimagem}>
-                            <Card.Img
-                                variant="top"
-                                src={item.caminho_imagem}
-                                style={{ height: '250px', objectFit: 'cover' }}></Card.Img>
-                            <Card.Body>
+                            <StyledCBody imagem_url={`${BACKEND_URL}${item.caminho_imagem}`}>
                                 <Card.Title>{item.titulo || `#{index + 1}`}</Card.Title>
                                 <Button as={Link} to={`/blog/${item.idPost}`}>Veja mais</Button>
-                            </Card.Body>
+                            </StyledCBody>
                         </StyledCard>
                     ))}
                 </GridGaleria>

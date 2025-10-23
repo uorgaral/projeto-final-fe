@@ -39,12 +39,12 @@ function App() {
         <Header />
         <ContentWrapper>
           <Routes>
-            <Route path="/" element={<PaginaInicial />} />
+            <Route path="/" element={<BoasVindas />} />
+            <Route path="/inicio" element={<PaginaInicial />} />
             <Route path="/sobre" element={<Sobre />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/galeria" element={<Galeria />} />
             <Route path="/login" element={<Login />} />
-            {/* Em um projeto real, você usaria um componente PrivateRoute aqui */}
             <Route path="/usuarios/adicionarPost" element={<AddBlog />} />
           </Routes>
         </ContentWrapper>
